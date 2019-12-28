@@ -1,7 +1,10 @@
 package com.tuling.netty.base;
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.*;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
+import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -9,11 +12,10 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 public class NettyServer {
 
     public static void main(String[] args) throws Exception {
-
         //创建两个线程组bossGroup和workerGroup, 含有的子线程NioEventLoop的个数默认为cpu核数的两倍
         // bossGroup只是处理连接请求 ,真正的和客户端业务处理，会交给workerGroup完成
-        EventLoopGroup bossGroup = new NioEventLoopGroup(1);
-        EventLoopGroup workerGroup = new NioEventLoopGroup();
+        EventLoopGroup bossGroup = new NioEventLoopGroup(10);
+        EventLoopGroup workerGroup = new NioEventLoopGroup(100000);
         try {
             //创建服务器端的启动对象
             ServerBootstrap bootstrap = new ServerBootstrap();

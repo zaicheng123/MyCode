@@ -14,7 +14,7 @@ public class NettyByteBuf {
         ByteBuf byteBuf = Unpooled.buffer(10);
         System.out.println("byteBuf=" + byteBuf);
 
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 8; i++) {
             byteBuf.writeByte(i);
         }
         System.out.println("byteBuf=" + byteBuf);
