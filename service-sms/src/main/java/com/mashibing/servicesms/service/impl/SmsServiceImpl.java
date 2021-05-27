@@ -44,7 +44,7 @@ public class SmsServiceImpl implements SmsService {
 
             ServiceSmsRecord sms = new ServiceSmsRecord();
             sms.setPhoneNumber(phoneNumber);
-
+            // 81B*10 1024 1K 10*1024  1M
             for (SmsTemplateDto template : templates) {
                 // 从DB加载模板内容至缓存
                 if (!templateMaps.containsKey(template.getId())) {

@@ -3,16 +3,16 @@ spring:
     name: cloud-eureka
 eureka:
   instance:
-#    prefer-ip-address: true
-#    ip-address: 127.0.0.1
-
+    prefer-ip-address: true
+    ip-address: eureka-7900
+    hostname: eureka-7900
 
   client:
     register-with-eureka: false
     fetch-registry: true
-#    service-url:
+    service-url:
 #      # 5 24
-#      defaultZone: http://eureka-7900:7900/eureka/,http://eureka-7901:7901/eureka/,http://eureka-7902:7902/eureka/
+      defaultZone: http://eureka-7900:7900/eureka/,http://eureka-7901:7901/eureka/,http://eureka-7902:7902/eureka/
 #      #,
   server:
     # 自我保护看自己情况
